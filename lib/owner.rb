@@ -30,13 +30,14 @@ class Owner
   end 
   
   def cats
-    #binding.pry
     Cat.all.select {|cat| self == cat.owner} 
+    @pets.select {|pet| pet.is_a? Cat} 
   end 
   
   def dogs
-    #binding.pry
    Dog.all.select {|dog| self == dog.owner} 
+    @pets.select {|pet| pet.is_a? Dog} 
+
   end 
   
   def buy_cat(name)
@@ -49,20 +50,29 @@ class Owner
   end 
   
   def walk_dogs 
+<<<<<<< HEAD
     dogs = self.dogs
     dogs.each do |dog|
+=======
+    self.pets.each do |dog|
+>>>>>>> 63b658b2d2e51fd4d7342874e79f7870419581dc
       dog.mood = 'happy'
     end 
   end 
     
   def feed_cats
+<<<<<<< HEAD
     cats = self.cats
     cats.each do |cat|
+=======
+    self.pets.each do |cat|
+>>>>>>> 63b658b2d2e51fd4d7342874e79f7870419581dc
       cat.mood = 'happy'
     end 
   end 
   
   def sell_pets
+<<<<<<< HEAD
     pets = self.dogs + self.cats
      pets.each do |pet|
       pet.mood = 'nervous'
@@ -80,5 +90,24 @@ class Owner
     return "I have #{num_dogs} dog(s), and #{num_cats} cat(s)."
   end 
   
+=======
+    self.pets.each do |pet|
+      pet.mood = 'nervous'
+    end 
+   
+  end 
+  
+  def list_pets 
+     if self.pets.is_a? Dog 
+       num_dogs = Dog.all.length
+     else 
+       num_cats = Cat.all.length
+     end 
+    
+    puts "I have #{num_dogs} dog(s), and #{num_cats} cat(s)."
+  end 
+  
+ 
+>>>>>>> 63b658b2d2e51fd4d7342874e79f7870419581dc
 
 end 
